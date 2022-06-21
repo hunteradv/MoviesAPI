@@ -1,11 +1,18 @@
-﻿namespace MoviesAPI.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace MoviesAPI.Models
 {
     public class Movie
     {
+        [Required(ErrorMessage = "Id é obrigatório")]
         public int Id { get; set; }
+        [Required(ErrorMessage = "Título é obrigatório")]
         public string Title { get; set; }
+        [Required(ErrorMessage = "Diretor é obrigatório")]
         public string Director { get; set; }
-        public string Gender { get; set; }
+        [StringLength(30, ErrorMessage = "Gênero não pode ultrapassar 30 caracteres")]
+        public string Genre { get; set; }
+        [Range(1, 600, ErrorMessage = "Duração deve ser no máximo 600 minutos")]
         public int Duraction { get; set; }
     }
 }

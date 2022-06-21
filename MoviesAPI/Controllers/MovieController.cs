@@ -10,10 +10,17 @@ namespace MoviesAPI.Controllers
     public class MovieController : ControllerBase
     {
         private static List<Movie> movies = new List<Movie>();
-        public void AddMovie(Movie movie)
+
+        [HttpPost]
+        public void AddMovie([FromBody]Movie movie)
         {
             movies.Add(movie);
-            Console.WriteLine(movie.Title);
         }
+
+        //[HttpGet]
+        //public Movie GetMovie()
+        //{
+        //    return movies.ToString;
+        //}
     }
 }
