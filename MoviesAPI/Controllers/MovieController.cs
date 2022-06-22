@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using MoviesAPI.Data;
 using MoviesAPI.Data.Dtos;
 using MoviesAPI.Models;
@@ -13,22 +14,18 @@ namespace MoviesAPI.Controllers
     public class MovieController : ControllerBase
     {
         private MovieContext _context;
+        private IMapper _mapper;
 
-        public MovieController(MovieContext context)
+        public MovieController(MovieContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         [HttpPost]
         public IActionResult AddMovie([FromBody]CreateMovieDto movieDto)
         {
-            var movie = new Movie
-            {
-                Title = movieDto.Title,
-                Genre = movieDto.Genre,
-                Duraction = movieDto.Duraction,
-                Director = movieDto.Director
-            };
+            var movie = _mapper.Map<Movie>(movieDto);
 
             _context.Movies.Add(movie);
             _context.SaveChanges();
@@ -48,15 +45,7 @@ namespace MoviesAPI.Controllers
 
             if(movie != null)
             {
-                ReadMovieDto movieDto = new ReadMovieDto
-                {
-                    Title = movie.Title,
-                    Director = movie.Director,
-                    Duraction = movie.Duraction,
-                    Id = movie.Id,
-                    Genre = movie.Genre,
-                    ReadTime = DateTime.Now
-                };
+                ReadMovieDto movieDto = _mapper.Map<ReadMovieDto>(movie);
 
                 return Ok(movieDto);
             }
@@ -77,10 +66,7 @@ namespace MoviesAPI.Controllers
             }
             else
             {
-                movie.Title = movieDto.Title;
-                movie.Genre = movieDto.Genre;
-                movie.Duraction = movieDto.Duraction;
-                movie.Director = movieDto.Director;
+                _mapper.Map(movieDto, movie);
 
                 _context.SaveChanges();
 
