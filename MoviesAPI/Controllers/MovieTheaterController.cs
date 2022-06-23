@@ -36,7 +36,7 @@ namespace MoviesAPI.Controllers
         [HttpGet]
         public IEnumerable GetMovieTheater()
         {
-
+            return _context.Movies;
         }
 
         [HttpGet("{id}")]
@@ -53,6 +53,42 @@ namespace MoviesAPI.Controllers
                 var movieTheaterDto = _mapper.Map<ReadMovieTheaterDto>(movieTheater);
 
                 return Ok(movieTheaterDto);
+            }
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateMovieTheater([FromBody]UpdateMovieTheaterDto movieTheaterDto, int id)
+        {
+            var movieTheater = _context.MovieTheaters.Where(mt => mt.Id == id).FirstOrDefault();
+
+            if(movieTheater is null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                _mapper.Map(movieTheaterDto, movieTheater);
+                _context.SaveChanges();
+
+                return NoContent();
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteMovieTheater(int id)
+        {
+            var movieTheater = _context.MovieTheaters.Where(mt => mt.Id == id).FirstOrDefault();
+
+            if(movieTheater is null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                _context.MovieTheaters.Remove(movieTheater);
+                _context.SaveChanges();
+
+                return NoContent();
             }
         }
     }
