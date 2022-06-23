@@ -4,9 +4,9 @@ using MoviesAPI.Models;
 
 namespace MoviesAPI.Profiles
 {
-    public class MovieTeatherProfile : Profile
+    public class MovieTheaterProfile : Profile
     {
-        public MovieTeatherProfile()
+        public MovieTheaterProfile()
         {
             CreateMap<CreateMovieDto, MovieTheater>();
             CreateMap<UpdateMovieDto, MovieTheater>();
