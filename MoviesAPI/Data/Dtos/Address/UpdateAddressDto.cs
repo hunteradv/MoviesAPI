@@ -1,12 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MoviesAPI.Models
+namespace MoviesAPI.Data.Dtos.Address
 {
-    public class Address
+    public class UpdateAddressDto
     {
-        [Key]
-        [Required(ErrorMessage = "Id é obrigatório")]
-        public int Id { get; set; }
         [Required(ErrorMessage = "Logradouro é obrigatório")]
         public string Street { get; set; }
         [Required(ErrorMessage = "Bairro é obrigatório")]
