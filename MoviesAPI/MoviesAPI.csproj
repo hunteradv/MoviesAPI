@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Data\Dtos\Address\" />
     <Folder Include="Migrations\" />
   </ItemGroup>
 

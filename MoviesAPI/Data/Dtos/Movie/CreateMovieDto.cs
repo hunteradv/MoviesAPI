@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MoviesAPI.Data.Dtos
+namespace MoviesAPI.Data.Dtos.Movie
 {
-    public class UpdateMovieDto
+    public class CreateMovieDto
     {
         public string Title { get; set; }
         [Required(ErrorMessage = "Diretor é obrigatório")]
