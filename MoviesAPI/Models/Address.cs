@@ -13,5 +13,6 @@ namespace MoviesAPI.Models
         public string District { get; set; }
         [Required(ErrorMessage = "Número é obrigatório")]
         public int Number { get; set; }
+        public MovieTheater MovieTheater { get; set; }
     }
 }
