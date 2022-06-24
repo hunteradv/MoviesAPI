@@ -86,6 +86,7 @@ namespace MoviesAPI.Controllers
             {
                 _context.Remove(movie);
                 _context.SaveChanges();
+
                 return NoContent();
             }
         }
