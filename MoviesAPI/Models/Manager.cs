@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace MoviesAPI.Models
 {
@@ -9,5 +10,6 @@ namespace MoviesAPI.Models
         public int Id { get; set; }
         [Required(ErrorMessage = "Nome é obrigatório")]
         public string Name { get; set; }
+        public virtual List<MovieTheater> MovieTheaters { get; set; }
     }
 }

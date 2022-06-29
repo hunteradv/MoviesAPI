@@ -4,6 +4,7 @@ using MoviesAPI.Data;
 using MoviesAPI.Data.Dtos.Manager;
 using MoviesAPI.Models;
 using System;
+using System.Collections;
 using System.Linq;
 
 namespace MoviesAPI.Controllers
@@ -22,13 +23,19 @@ namespace MoviesAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddManager(CreateManagerDto dto)
+        public IActionResult AddManager([FromBody] CreateManagerDto dto)
         {
             var manager = _mapper.Map<Manager>(dto);
 
             _context.Managers.Add(manager);
             _context.SaveChanges();
             return CreatedAtAction(nameof(GetManagerById), new { manager.Id }, manager);
+        }
+
+        [HttpGet]
+        public IEnumerable GetManager()
+        {
+            return _context.Managers;
         }
 
         [HttpGet("{id}")]
