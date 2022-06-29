@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MoviesAPI.Data.Dtos.Address
+namespace MoviesAPI.Data.Dtos.Addresses
 {
     public class CreateAddressDto
     {
@@ -10,5 +10,6 @@ namespace MoviesAPI.Data.Dtos.Address
         public string District { get; set; }
         [Required(ErrorMessage = "Número é obrigatório")]
         public int Number { get; set; }
+        public int MovieTheaterId { get; set; }
     }
 }

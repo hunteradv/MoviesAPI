@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MoviesAPI.Data.Dtos.Address
+namespace MoviesAPI.Data.Dtos.Addresses
 {
     public class UpdateAddressDto
     {

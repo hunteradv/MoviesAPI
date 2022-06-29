@@ -6,5 +6,6 @@ namespace MoviesAPI.Data.Dtos.MovieTheater
     {
         [Required(ErrorMessage = "Nome é obrigatório")]
         public string Name { get; set; }
+        public int AddressId { get; set; }
     }
 }

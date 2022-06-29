@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using MoviesAPI.Data;
-using MoviesAPI.Data.Dtos.Address;
+using MoviesAPI.Data.Dtos.Addresses;
 using MoviesAPI.Models;
 using System;
 using System.Collections;
@@ -9,6 +9,8 @@ using System.Linq;
 
 namespace MoviesAPI.Controllers
 {
+    [ApiController]
+    [Route("{controller}")]
     public class AddressController : ControllerBase
     {
         private AppDbContext _context;

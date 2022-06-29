@@ -36,7 +36,7 @@ namespace MoviesAPI.Controllers
         [HttpGet]
         public IEnumerable GetMovieTheater()
         {
-            return _context.Movies;
+            return _context.MovieTheaters;
         }
 
         [HttpGet("{id}")]
