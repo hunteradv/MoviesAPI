@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace MoviesAPI.Models
 {
@@ -14,6 +15,7 @@ namespace MoviesAPI.Models
         [Required(ErrorMessage = "Número é obrigatório")]
         public int Number { get; set; }
         [Required(ErrorMessage = "Cinema é obrigatório")]
-        public MovieTheater MovieTheater { get; set; }
+        [JsonIgnore]
+        public virtual MovieTheater MovieTheater { get; set; }
     }
 }

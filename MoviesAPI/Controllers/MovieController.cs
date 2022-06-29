@@ -43,15 +43,16 @@ namespace MoviesAPI.Controllers
         {
             var movie = _context.Movies.Where(m => m.Id == id).FirstOrDefault();
 
-            if(movie != null)
+            if(movie is null)
             {
-                ReadMovieDto movieDto = _mapper.Map<ReadMovieDto>(movie);
-
-                return Ok(movieDto);
+                return NotFound();
             }
             else
             {
-                return NotFound();
+                ReadMovieDto movieDto = _mapper.Map<ReadMovieDto>(movie);
+                movieDto.ReadTime = DateTime.Now;
+
+                return Ok(movieDto);
             }
         }
 

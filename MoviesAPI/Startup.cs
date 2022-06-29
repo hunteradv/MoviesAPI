@@ -30,7 +30,7 @@ namespace MoviesAPI
         {
             string connectionString = Configuration.GetConnectionString("MovieConnection");
 
-            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
+            services.AddDbContext<AppDbContext>(options => options.UseLazyLoadingProxies().UseSqlServer(connectionString));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

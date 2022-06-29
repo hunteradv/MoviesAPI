@@ -51,6 +51,7 @@ namespace MoviesAPI.Controllers
             else
             {
                 var movieTheaterDto = _mapper.Map<ReadMovieTheaterDto>(movieTheater);
+                movieTheaterDto.ReadTime = DateTime.Now;
 
                 return Ok(movieTheaterDto);
             }

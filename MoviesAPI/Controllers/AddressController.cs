@@ -10,7 +10,7 @@ using System.Linq;
 namespace MoviesAPI.Controllers
 {
     [ApiController]
-    [Route("{controller}")]
+    [Route("[controller]")]
     public class AddressController : ControllerBase
     {
         private AppDbContext _context;
@@ -51,6 +51,7 @@ namespace MoviesAPI.Controllers
             else
             {
                 var addressDto = _mapper.Map<ReadAddressDto>(address);
+                addressDto.ReadTime = DateTime.Now;
 
                 return Ok(addressDto);
             }
