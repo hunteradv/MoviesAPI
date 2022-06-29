@@ -2,7 +2,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace MoviesAPI.Data.Dtos.MovieTheater
+namespace MoviesAPI.Data.Dtos.MovieTheaters
 {
     public class ReadMovieTheaterDto
     {
@@ -10,5 +10,6 @@ namespace MoviesAPI.Data.Dtos.MovieTheater
         public string Name { get; set; }
         public DateTime ReadTime { get; set; }
         public Address Address { get; set; }
+        public Manager Manager { get; set; }
     }
 }

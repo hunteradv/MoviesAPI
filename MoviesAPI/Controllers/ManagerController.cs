@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using MoviesAPI.Data;
-using MoviesAPI.Data.Dtos.Manager;
+using MoviesAPI.Data.Dtos.Managers;
 using MoviesAPI.Models;
 using System;
 using System.Collections;
@@ -41,7 +41,7 @@ namespace MoviesAPI.Controllers
         [HttpGet("{id}")]
         public IActionResult GetManagerById(int id)
         {
-            var manager = _context.Managers.Where(m => m.Id == id);
+            var manager = _context.Managers.Where(m => m.Id == id).FirstOrDefault();
 
             if(manager is null)
             {

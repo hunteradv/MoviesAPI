@@ -1,4 +1,4 @@
-﻿namespace MoviesAPI.Data.Dtos.Manager
+﻿namespace MoviesAPI.Data.Dtos.Managers
 {
     public class CreateManagerDto
     {        

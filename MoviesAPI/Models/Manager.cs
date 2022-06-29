@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace MoviesAPI.Models
 {
@@ -10,6 +11,7 @@ namespace MoviesAPI.Models
         public int Id { get; set; }
         [Required(ErrorMessage = "Nome é obrigatório")]
         public string Name { get; set; }
+        [JsonIgnore]
         public virtual List<MovieTheater> MovieTheaters { get; set; }
     }
 }
