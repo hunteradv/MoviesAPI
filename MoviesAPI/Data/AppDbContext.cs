@@ -21,11 +21,22 @@ namespace MoviesAPI.Data
                 .HasOne(movieTheater => movieTheater.Manager)
                 .WithMany(manager => manager.MovieTheaters)
                 .HasForeignKey(movieTheater => movieTheater.ManagerId);
+
+            modelBuilder.Entity<Session>()
+                .HasOne(session => session.Movie)
+                .WithMany(movie => movie.Sessions)
+                .HasForeignKey(session => session.MovieId);
+
+            modelBuilder.Entity<Session>()
+                .HasOne(session => session.MovieTheater)
+                .WithMany(movieTheater => movieTheater.Sessions)
+                .HasForeignKey(session => session.MovieTheaterId);
         }
 
         public DbSet<Movie> Movies { get; set; }
         public DbSet<MovieTheater> MovieTheaters { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Manager> Managers { get; set; }
+        public DbSet<Session> Sessions { get; set; }
     }
 }
