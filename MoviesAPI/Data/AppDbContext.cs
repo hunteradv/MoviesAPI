@@ -20,7 +20,7 @@ namespace MoviesAPI.Data
             modelBuilder.Entity<MovieTheater>()
                 .HasOne(movieTheater => movieTheater.Manager)
                 .WithMany(manager => manager.MovieTheaters)
-                .HasForeignKey(movieTheater => movieTheater.AddressId);
+                .HasForeignKey(movieTheater => movieTheater.ManagerId);
         }
 
         public DbSet<Movie> Movies { get; set; }

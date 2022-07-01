@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace MoviesAPI.Models
 {
@@ -13,5 +14,6 @@ namespace MoviesAPI.Models
         public int AddressId { get; set; }
         public virtual Manager Manager { get; set; }
         public int ManagerId { get; set; }
+        public virtual List<Movie> Movies { get; set; }
     }
 }

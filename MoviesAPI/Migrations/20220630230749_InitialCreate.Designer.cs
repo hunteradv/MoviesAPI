@@ -9,8 +9,8 @@ using MoviesAPI.Data;
 namespace MoviesAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220629232931_AdicionandoRelacaoEntreCinemaEGerente")]
-    partial class AdicionandoRelacaoEntreCinemaEGerente
+    [Migration("20220630230749_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -108,6 +108,8 @@ namespace MoviesAPI.Migrations
                     b.HasIndex("AddressId")
                         .IsUnique();
 
+                    b.HasIndex("ManagerId");
+
                     b.ToTable("MovieTheaters");
                 });
 
@@ -121,7 +123,7 @@ namespace MoviesAPI.Migrations
 
                     b.HasOne("MoviesAPI.Models.Manager", "Manager")
                         .WithMany("MovieTheaters")
-                        .HasForeignKey("AddressId")
+                        .HasForeignKey("ManagerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

@@ -106,6 +106,8 @@ namespace MoviesAPI.Migrations
                     b.HasIndex("AddressId")
                         .IsUnique();
 
+                    b.HasIndex("ManagerId");
+
                     b.ToTable("MovieTheaters");
                 });
 
@@ -119,7 +121,7 @@ namespace MoviesAPI.Migrations
 
                     b.HasOne("MoviesAPI.Models.Manager", "Manager")
                         .WithMany("MovieTheaters")
-                        .HasForeignKey("AddressId")
+                        .HasForeignKey("ManagerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
