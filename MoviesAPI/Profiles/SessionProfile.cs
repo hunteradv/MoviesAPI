@@ -9,7 +9,9 @@ namespace MoviesAPI.Profiles
         public SessionProfile()
         {
             CreateMap<CreateSessionDto, Session>();
-            CreateMap<Session, ReadSessionDto>();
+            CreateMap<Session, ReadSessionDto>()
+                .ForMember(dto => dto.StartTime, opts => opts
+                .MapFrom(dto => dto.FinishTime.AddMinutes(dto.Movie.Duraction * (-1))));
         }
     }
 }

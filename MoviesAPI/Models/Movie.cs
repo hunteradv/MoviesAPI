@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace MoviesAPI.Models
 {
@@ -16,6 +17,7 @@ namespace MoviesAPI.Models
         public string Genre { get; set; }
         [Range(1, 600, ErrorMessage = "Duração deve ser no máximo 600 minutos")]
         public int Duraction { get; set; }
+        [JsonIgnore]
         public virtual List<Session> Sessions { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace MoviesAPI.Models
 {
@@ -16,6 +17,7 @@ namespace MoviesAPI.Models
         [Required(ErrorMessage = "Gerente é obrigatório")]
         public virtual Manager Manager { get; set; }
         public int ManagerId { get; set; }
+        [JsonIgnore]
         public virtual List<Session> Sessions { get; set; }
     }
 }
