@@ -51,7 +51,6 @@ namespace MoviesAPI.Controllers
             else
             {
                 var addressDto = _mapper.Map<ReadAddressDto>(address);
-                addressDto.ReadTime = DateTime.Now;
 
                 return Ok(addressDto);
             }

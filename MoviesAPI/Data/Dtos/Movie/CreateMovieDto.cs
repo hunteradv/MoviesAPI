@@ -11,5 +11,6 @@ namespace MoviesAPI.Data.Dtos.Movies
         public string Genre { get; set; }
         [Range(1, 600, ErrorMessage = "Duração deve ser no máximo 600 minutos")]
         public int Duraction { get; set; }
+        public int AgeRating { get; set; }
     }
 }

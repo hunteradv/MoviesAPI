@@ -11,6 +11,5 @@ namespace MoviesAPI.Data.Dtos.Addresses
         public string District { get; set; }
         [Required(ErrorMessage = "Número é obrigatório")]
         public int Number { get; set; }
-        public DateTime ReadTime { get; set; }
     }
 }

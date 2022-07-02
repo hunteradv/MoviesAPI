@@ -8,7 +8,6 @@ namespace MoviesAPI.Data.Dtos.Managers
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public DateTime ReadTime { get; set; }
         public Object MovieTheaters { get; set; }
     }
 }

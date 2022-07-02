@@ -49,8 +49,7 @@ namespace MoviesAPI.Controllers
             }
             else
             {
-                var managerDto = _mapper.Map<ReadManagerDto>(manager);
-                managerDto.ReadTime = DateTime.Now;
+                var managerDto = _mapper.Map<ReadManagerDto>(manager);               
 
                 return Ok(managerDto);
             }

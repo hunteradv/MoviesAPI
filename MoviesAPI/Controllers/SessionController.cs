@@ -50,8 +50,6 @@ namespace MoviesAPI.Controllers
             else
             {
                 var sessionDto = _mapper.Map<ReadSessionDto>(session);
-                sessionDto.ReadTime = DateTime.Now;
-
                 return Ok(sessionDto);
             }
         }

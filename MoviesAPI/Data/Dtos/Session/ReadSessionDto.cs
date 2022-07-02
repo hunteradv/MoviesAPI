@@ -10,6 +10,5 @@ namespace MoviesAPI.Data.Dtos.Session
         public Movie Movie { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime FinishTime { get; set; }
-        public DateTime ReadTime { get; set; }
     }
 }
